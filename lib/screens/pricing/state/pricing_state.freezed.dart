@@ -19,12 +19,10 @@ class _$PricingStateTearOff {
 
   _PricingState call(
       {bool loading = true,
-      PricingPlan? currentPlan,
       List<PricingPlan> plans = const [],
       dynamic payEachSelection = PayEach.month}) {
     return _PricingState(
       loading: loading,
-      currentPlan: currentPlan,
       plans: plans,
       payEachSelection: payEachSelection,
     );
@@ -37,8 +35,6 @@ const $PricingState = _$PricingStateTearOff();
 /// @nodoc
 mixin _$PricingState {
   bool get loading => throw _privateConstructorUsedError;
-  PricingPlan? get currentPlan =>
-      throw _privateConstructorUsedError; //TODO: gestire meglio current plan
   List<PricingPlan> get plans => throw _privateConstructorUsedError;
   dynamic get payEachSelection => throw _privateConstructorUsedError;
 
@@ -52,13 +48,7 @@ abstract class $PricingStateCopyWith<$Res> {
   factory $PricingStateCopyWith(
           PricingState value, $Res Function(PricingState) then) =
       _$PricingStateCopyWithImpl<$Res>;
-  $Res call(
-      {bool loading,
-      PricingPlan? currentPlan,
-      List<PricingPlan> plans,
-      dynamic payEachSelection});
-
-  $PricingPlanCopyWith<$Res>? get currentPlan;
+  $Res call({bool loading, List<PricingPlan> plans, dynamic payEachSelection});
 }
 
 /// @nodoc
@@ -72,7 +62,6 @@ class _$PricingStateCopyWithImpl<$Res> implements $PricingStateCopyWith<$Res> {
   @override
   $Res call({
     Object? loading = freezed,
-    Object? currentPlan = freezed,
     Object? plans = freezed,
     Object? payEachSelection = freezed,
   }) {
@@ -81,10 +70,6 @@ class _$PricingStateCopyWithImpl<$Res> implements $PricingStateCopyWith<$Res> {
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
-      currentPlan: currentPlan == freezed
-          ? _value.currentPlan
-          : currentPlan // ignore: cast_nullable_to_non_nullable
-              as PricingPlan?,
       plans: plans == freezed
           ? _value.plans
           : plans // ignore: cast_nullable_to_non_nullable
@@ -95,17 +80,6 @@ class _$PricingStateCopyWithImpl<$Res> implements $PricingStateCopyWith<$Res> {
               as dynamic,
     ));
   }
-
-  @override
-  $PricingPlanCopyWith<$Res>? get currentPlan {
-    if (_value.currentPlan == null) {
-      return null;
-    }
-
-    return $PricingPlanCopyWith<$Res>(_value.currentPlan!, (value) {
-      return _then(_value.copyWith(currentPlan: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -115,14 +89,7 @@ abstract class _$PricingStateCopyWith<$Res>
           _PricingState value, $Res Function(_PricingState) then) =
       __$PricingStateCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {bool loading,
-      PricingPlan? currentPlan,
-      List<PricingPlan> plans,
-      dynamic payEachSelection});
-
-  @override
-  $PricingPlanCopyWith<$Res>? get currentPlan;
+  $Res call({bool loading, List<PricingPlan> plans, dynamic payEachSelection});
 }
 
 /// @nodoc
@@ -138,7 +105,6 @@ class __$PricingStateCopyWithImpl<$Res> extends _$PricingStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? loading = freezed,
-    Object? currentPlan = freezed,
     Object? plans = freezed,
     Object? payEachSelection = freezed,
   }) {
@@ -147,10 +113,6 @@ class __$PricingStateCopyWithImpl<$Res> extends _$PricingStateCopyWithImpl<$Res>
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
-      currentPlan: currentPlan == freezed
-          ? _value.currentPlan
-          : currentPlan // ignore: cast_nullable_to_non_nullable
-              as PricingPlan?,
       plans: plans == freezed
           ? _value.plans
           : plans // ignore: cast_nullable_to_non_nullable
@@ -167,7 +129,6 @@ class __$PricingStateCopyWithImpl<$Res> extends _$PricingStateCopyWithImpl<$Res>
 class _$_PricingState extends _PricingState {
   _$_PricingState(
       {this.loading = true,
-      this.currentPlan,
       this.plans = const [],
       this.payEachSelection = PayEach.month})
       : super._();
@@ -175,10 +136,8 @@ class _$_PricingState extends _PricingState {
   @JsonKey(defaultValue: true)
   @override
   final bool loading;
-  @override
-  final PricingPlan? currentPlan;
   @JsonKey(defaultValue: const [])
-  @override //TODO: gestire meglio current plan
+  @override
   final List<PricingPlan> plans;
   @JsonKey(defaultValue: PayEach.month)
   @override
@@ -186,7 +145,7 @@ class _$_PricingState extends _PricingState {
 
   @override
   String toString() {
-    return 'PricingState(loading: $loading, currentPlan: $currentPlan, plans: $plans, payEachSelection: $payEachSelection)';
+    return 'PricingState(loading: $loading, plans: $plans, payEachSelection: $payEachSelection)';
   }
 
   @override
@@ -195,8 +154,6 @@ class _$_PricingState extends _PricingState {
         (other.runtimeType == runtimeType &&
             other is _PricingState &&
             (identical(other.loading, loading) || other.loading == loading) &&
-            (identical(other.currentPlan, currentPlan) ||
-                other.currentPlan == currentPlan) &&
             const DeepCollectionEquality().equals(other.plans, plans) &&
             const DeepCollectionEquality()
                 .equals(other.payEachSelection, payEachSelection));
@@ -206,7 +163,6 @@ class _$_PricingState extends _PricingState {
   int get hashCode => Object.hash(
       runtimeType,
       loading,
-      currentPlan,
       const DeepCollectionEquality().hash(plans),
       const DeepCollectionEquality().hash(payEachSelection));
 
@@ -219,7 +175,6 @@ class _$_PricingState extends _PricingState {
 abstract class _PricingState extends PricingState {
   factory _PricingState(
       {bool loading,
-      PricingPlan? currentPlan,
       List<PricingPlan> plans,
       dynamic payEachSelection}) = _$_PricingState;
   _PricingState._() : super._();
@@ -227,8 +182,6 @@ abstract class _PricingState extends PricingState {
   @override
   bool get loading;
   @override
-  PricingPlan? get currentPlan;
-  @override //TODO: gestire meglio current plan
   List<PricingPlan> get plans;
   @override
   dynamic get payEachSelection;

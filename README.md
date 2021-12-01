@@ -17,3 +17,4 @@ samples, guidance on mobile development, and a full API reference.
 
 
 Martedi 30: 20:00-20:40
+MErcoledi 1: 1:20 ore -> TOT: 2 ore

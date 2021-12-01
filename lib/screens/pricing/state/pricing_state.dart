@@ -11,7 +11,6 @@ class PricingState with _$PricingState {
 
   factory PricingState({
     @Default(true) bool loading,
-    PricingPlan? currentPlan, //TODO: gestire meglio current plan
     @Default([]) List<PricingPlan> plans,
     @Default(PayEach.month) payEachSelection,
   }) = _PricingState;

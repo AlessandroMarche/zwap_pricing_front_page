@@ -22,13 +22,15 @@ class _$PricingPlanTearOff {
   const _$PricingPlanTearOff();
 
   _PricingPlan call(
-      {required String title,
+      {required String id,
+      required String title,
       required String subtitle,
       @JsonKey(name: 'monthprice') required double monthPrice,
-      @JsonKey(name: 'annualprice') required double? annualPrice,
+      @JsonKey(name: 'annualprice') double? annualPrice,
       required List<PricingFeature> features,
       @JsonKey(defaultValue: false) bool favorite = false}) {
     return _PricingPlan(
+      id: id,
       title: title,
       subtitle: subtitle,
       monthPrice: monthPrice,
@@ -48,6 +50,7 @@ const $PricingPlan = _$PricingPlanTearOff();
 
 /// @nodoc
 mixin _$PricingPlan {
+  String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get subtitle => throw _privateConstructorUsedError;
   @JsonKey(name: 'monthprice')
@@ -70,7 +73,8 @@ abstract class $PricingPlanCopyWith<$Res> {
           PricingPlan value, $Res Function(PricingPlan) then) =
       _$PricingPlanCopyWithImpl<$Res>;
   $Res call(
-      {String title,
+      {String id,
+      String title,
       String subtitle,
       @JsonKey(name: 'monthprice') double monthPrice,
       @JsonKey(name: 'annualprice') double? annualPrice,
@@ -88,6 +92,7 @@ class _$PricingPlanCopyWithImpl<$Res> implements $PricingPlanCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? title = freezed,
     Object? subtitle = freezed,
     Object? monthPrice = freezed,
@@ -96,6 +101,10 @@ class _$PricingPlanCopyWithImpl<$Res> implements $PricingPlanCopyWith<$Res> {
     Object? favorite = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -132,7 +141,8 @@ abstract class _$PricingPlanCopyWith<$Res>
       __$PricingPlanCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String title,
+      {String id,
+      String title,
       String subtitle,
       @JsonKey(name: 'monthprice') double monthPrice,
       @JsonKey(name: 'annualprice') double? annualPrice,
@@ -152,6 +162,7 @@ class __$PricingPlanCopyWithImpl<$Res> extends _$PricingPlanCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? title = freezed,
     Object? subtitle = freezed,
     Object? monthPrice = freezed,
@@ -160,6 +171,10 @@ class __$PricingPlanCopyWithImpl<$Res> extends _$PricingPlanCopyWithImpl<$Res>
     Object? favorite = freezed,
   }) {
     return _then(_PricingPlan(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -192,10 +207,11 @@ class __$PricingPlanCopyWithImpl<$Res> extends _$PricingPlanCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PricingPlan extends _PricingPlan {
   _$_PricingPlan(
-      {required this.title,
+      {required this.id,
+      required this.title,
       required this.subtitle,
       @JsonKey(name: 'monthprice') required this.monthPrice,
-      @JsonKey(name: 'annualprice') required this.annualPrice,
+      @JsonKey(name: 'annualprice') this.annualPrice,
       required this.features,
       @JsonKey(defaultValue: false) this.favorite = false})
       : super._();
@@ -203,6 +219,8 @@ class _$_PricingPlan extends _PricingPlan {
   factory _$_PricingPlan.fromJson(Map<String, dynamic> json) =>
       _$$_PricingPlanFromJson(json);
 
+  @override
+  final String id;
   @override
   final String title;
   @override
@@ -221,7 +239,7 @@ class _$_PricingPlan extends _PricingPlan {
 
   @override
   String toString() {
-    return 'PricingPlan(title: $title, subtitle: $subtitle, monthPrice: $monthPrice, annualPrice: $annualPrice, features: $features, favorite: $favorite)';
+    return 'PricingPlan(id: $id, title: $title, subtitle: $subtitle, monthPrice: $monthPrice, annualPrice: $annualPrice, features: $features, favorite: $favorite)';
   }
 
   @override
@@ -229,6 +247,7 @@ class _$_PricingPlan extends _PricingPlan {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PricingPlan &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.subtitle, subtitle) ||
                 other.subtitle == subtitle) &&
@@ -242,7 +261,7 @@ class _$_PricingPlan extends _PricingPlan {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, subtitle, monthPrice,
+  int get hashCode => Object.hash(runtimeType, id, title, subtitle, monthPrice,
       annualPrice, const DeepCollectionEquality().hash(features), favorite);
 
   @JsonKey(ignore: true)
@@ -258,10 +277,11 @@ class _$_PricingPlan extends _PricingPlan {
 
 abstract class _PricingPlan extends PricingPlan {
   factory _PricingPlan(
-      {required String title,
+      {required String id,
+      required String title,
       required String subtitle,
       @JsonKey(name: 'monthprice') required double monthPrice,
-      @JsonKey(name: 'annualprice') required double? annualPrice,
+      @JsonKey(name: 'annualprice') double? annualPrice,
       required List<PricingFeature> features,
       @JsonKey(defaultValue: false) bool favorite}) = _$_PricingPlan;
   _PricingPlan._() : super._();
@@ -269,6 +289,8 @@ abstract class _PricingPlan extends PricingPlan {
   factory _PricingPlan.fromJson(Map<String, dynamic> json) =
       _$_PricingPlan.fromJson;
 
+  @override
+  String get id;
   @override
   String get title;
   @override

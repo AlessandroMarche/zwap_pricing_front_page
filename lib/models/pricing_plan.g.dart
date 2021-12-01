@@ -8,6 +8,7 @@ part of 'pricing_plan.dart';
 
 _$_PricingPlan _$$_PricingPlanFromJson(Map<String, dynamic> json) =>
     _$_PricingPlan(
+      id: json['id'] as String,
       title: json['title'] as String,
       subtitle: json['subtitle'] as String,
       monthPrice: (json['monthprice'] as num).toDouble(),
@@ -20,6 +21,7 @@ _$_PricingPlan _$$_PricingPlanFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_PricingPlanToJson(_$_PricingPlan instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'title': instance.title,
       'subtitle': instance.subtitle,
       'monthprice': instance.monthPrice,

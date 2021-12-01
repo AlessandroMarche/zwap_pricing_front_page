@@ -7,6 +7,6 @@ class ApiService {
 
   Future<List<PricingPlan>> retrivePricingPlans() async {
     await zwapApiService.ApiService(headerAuthKey: '<auth-key-here>', baseUrl: '<base-url-here>').simulateApiCall(duration: const Duration(milliseconds: 1000));
-    return mockParsedJson['plans'].map((json) => PricingPlan.fromJson(json)).toList();
+    return mockParsedJson['plans'].map<PricingPlan>((json) => PricingPlan.fromJson(json)).toList();
   }
 }
