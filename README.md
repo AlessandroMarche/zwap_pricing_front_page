@@ -16,5 +16,5 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 
-Martedi 30: 20:00-20:40
-MErcoledi 1: 1:20 ore -> TOT: 2 ore
+Martedi 30: 40 minuti
+Mercoledi 1: 3 ore e qualcosa
